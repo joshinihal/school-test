@@ -1,0 +1,48 @@
+<%- include("partials/header")%>
+
+<div class="container">
+<header class="jumbotron">
+  <div class="container">
+    <h1>Welcome to School App!</h1>
+    <p>
+      <a class="btn btn-primary btn-large" href="/students/new"> Add new student</a>
+    </p>
+  </div>
+</header>
+
+
+        <table style="width:100%">
+            <tr >
+              <th>Name</th>
+              <th>School</th>
+              <th>Class</th>
+              <th>Division</th>
+              <th>Status</th>
+              <th></th>
+            </tr>
+  <% user.students.forEach(function(student){ %>
+            <tr>
+            
+              <td><%= student.name %></td>
+              <td><%= student.school %></td>
+              <td><%= student.class %></td>
+              <td><%= student.division %></td>
+              <td><%= student.status %></td>
+              <td><form id="myupdate"  method="GET" action="/students/<%= student._id %>/edit"></form>
+                <a onclick="document.getElementById('myupdate').submit();">Edit</a> 
+                <span><form id="mydel"  method="POST" action="/destroy/<%= student._id %>?_method=DELETE"></form>
+                <a onclick="document.getElementById('mydel').submit();">Delete</a> </span></td>
+            </tr>
+          </table>
+          <p>
+          </p>
+      <!-- </div> -->
+
+    <!-- </div> -->
+
+<% }); %>
+</div>
+
+</div>
+<%- include("partials/footer")%>
+

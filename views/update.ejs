@@ -1,0 +1,57 @@
+<%- include("partials/header")%>
+<div class="container">
+  <div class="row">
+    <h1 style="text-align:center">Create new student</h1>
+    <div style="width:30%; margin:25px auto;">
+      <form method="POST" action="/students/<%= student._id %>?_method=PUT">
+        <div class="form-group">
+          <input class="form-control" value="<%= student.name %>" type="text" name="name" placeholder="Name">
+        </div>
+        <div class="form-group">
+          <input class="form-control" value="<%= student.date %>" type="date" name="date" placeholder="Date of birth">
+        </div>
+        <div class="form-group">
+          <select name="school" value="<%= student.school %>" id="schools">
+            <!-- <option  >Select School</option> -->
+            <option name="first" >First</option>
+            <option name= "second" value="second">Second</option>
+    
+          </select>
+        </div>
+        <div class="form-group">
+            <select name="classNumber" value="<%= student.class %>" id="schools">
+              <!-- <option  >Select Class</option> -->
+              <option name="first" value="first">First</option>
+              <option name= "second" value="second">Second</option>
+      
+            </select>
+          </div>
+          <div class="form-group" >
+              <select name="division" value="<%= student.division %>" id="schools">
+                <!-- <option  value="volvo">Select Division</option> -->
+                <option name="first" value="first">First</option>
+                <option name= "second" value="second">Second</option>
+        
+              </select>
+            </div>
+        <div class="form-group" >
+            <% if(student.status=="Active"){ %>
+            <input type="radio" id="Active" name="status" value="Active" checked="checked">
+            <label for="Active">Active</label><br>
+            <input type="radio" id="Inactive" name="status" value="Inactive">
+            <label for="Inactive">Inactive</label><br>
+            <% }else{ %>
+              <input type="radio" id="Active" name="status" value="Active">
+            <label for="Active">Active</label><br>
+            <input type="radio" id="Inactive" name="status" value="Inactive" checked="checked">
+            <label for="Inactive">Inactive</label><br>
+              <% } %>
+        </div>
+          <button class="btn btn-lg btn-default btn-block btn-primary">SUBMIT</button>
+        </div>
+      </form>
+    <a href="/students"> Go back</a>
+    </div>
+  </div>
+</div>
+<%- include("partials/footer")%>

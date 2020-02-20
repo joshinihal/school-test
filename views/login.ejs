@@ -1,0 +1,40 @@
+<%- include("partials/header") %>
+<div>
+<div class="container">
+
+<form action="/loginsuccess" method="post"> 
+                      
+  <div style="width:30%; margin:25px auto;">
+      <p>Welcome to School App</p>
+
+      <h1> Login </h1> 
+
+  <div class="form-group">
+                    
+  <input  type="email" name="email" id="email" 
+  placeholder="E-Mail " required /><br> 
+  </div>
+
+  <div class="form-group">
+                    
+  <input  type="password" name="password" 
+  id="password" placeholder="Password " required/><br> 
+      </div>  
+      
+      
+        <div class="form-group">
+              
+  <input type="submit" id="submitDetails"  
+  name="submitDetails" value="Submit" /><br> 
+        </div>    
+  </form> 
+
+  <br> 
+<a href="#">Forgot Password</a>
+<br> 
+<a href="/register">Create New Account</a>
+</div>
+</div>
+</div>
+
+<%- include("partials/footer") %>
